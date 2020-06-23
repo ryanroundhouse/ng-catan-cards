@@ -34,4 +34,29 @@
   </tbody>
 </table>
 
+<br><br>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Player</th>
+      <th scope="col">Card</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let cardEvent of cardEvents">
+      <td scope="row">{{cardEvent.player.name}}</td>
+      <div class="input-group">
+        <td scope="row">
+          <div class="form-group">
+            <input class="form-control" id="{{cardEvent.id}}" style="visibility:collapse" type="textbox" value="{{cardEvent.card.name}}">
+            <a (click)="toggleVisibility(cardEvent.id)">
+              <i class="fa fa-eye-slash field-icon" aria-hidden="true"></i>
+            </a>
+          </div>
+        </td>
+      </div>
+    </tr>
+  </tbody>
+</table>
+
 <router-outlet></router-outlet>

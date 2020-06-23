@@ -6,6 +6,7 @@ import { cards } from './deck';
 import { Player } from './player';
 import { Card } from './card';
 import { HttpClient } from '@angular/common/http';
+import { CardEvent } from './card-event';
 
 @Component({
   selector: 'app-root',
@@ -18,6 +19,7 @@ export class AppComponent {
   deck: Card[] = this.shuffle(cards);
   cardsLeft: number = this.deck.length;
   players: Player[] = [];
+  cardEvents: CardEvent[] = [];
 
   constructor(private formBuilder: FormBuilder, private http: HttpClient, private router: Router){
     this.addPlayerForm = this.formBuilder.group({
@@ -39,11 +41,22 @@ export class AppComponent {
     this.addPlayerForm.reset();
   }
 
+  toggleVisibility(cardId){
+    var x = (<HTMLInputElement>document.getElementById(cardId));
+    if (x.style.visibility === "collapse"){
+      x.style.visibility = "visible"
+    }
+    else{
+      x.style.visibility = "collapse"
+    }
+  }
+
   drawCard(playerId){
     let player = this.players.find(p => p.id === playerId);
     let card = this.deck[this.deck.length - this.cardsLeft];
     let text = player.name + " drew a " + card.name;
     player.cards.push(card);
+    this.cardEvents.push({player: player, card: card, id: card.id});
     console.log(text);
 
     let emailInfo = {

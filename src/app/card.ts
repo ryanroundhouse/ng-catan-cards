@@ -1,5 +1,6 @@
 export interface Card {
     name: string,
     description: string,
-    imageUrl: string 
+    imageUrl: string,
+    id: number
 }

@@ -4,172 +4,206 @@ let cards: Card[] = [
     {
         name: "University of Catan",
         description: "+1 Victory Point!",
-        imageUrl: "https://google.ca"
+        imageUrl: "https://google.ca",
+        id: 0,
     },
     {
         name: "Chapel",
         description: "+1 Victory Point!",
-        imageUrl: "https://google.ca"
+        imageUrl: "https://google.ca",
+        id: 1,
     },
     {
         name: "Governor's House",
         description: "+1 Victory Point!",
-        imageUrl: "https://google.ca"
+        imageUrl: "https://google.ca",
+        id: 2,
     },
     {
         name: "Market",
         description: "+1 Victory Point!",
-        imageUrl: "https://google.ca"
+        imageUrl: "https://google.ca",
+        id: 3,
     },
     {
         name: "Library",
         description: "+1 Victory Point!",
-        imageUrl: "https://google.ca"
+        imageUrl: "https://google.ca",
+        id: 4,
     },
     {
         name: "Road Building",
         description: "Place 2 new roads as if you had just built them.",
-        imageUrl: "https://google.ca"
+        imageUrl: "https://google.ca",
+        id: 5,
     },
     {
         name: "Road Building",
         description: "Place 2 new roads as if you had just built them.",
-        imageUrl: "https://google.ca"
+        imageUrl: "https://google.ca",
+        id: 6,
     },
     {
         name: "Road Building",
         description: "Place 2 new roads as if you had just built them.",
-        imageUrl: "https://google.ca"
+        imageUrl: "https://google.ca",
+        id: 7,
     },
     {
         name: "Year of Plenty",
         description: "Take any 2 resource cards from the bank and add them to your hand.  They can be two different resources or two of the same resource.  They may immediately be used to build.",
-        imageUrl: "https://google.ca"
+        imageUrl: "https://google.ca",
+        id: 8,
     },
     {
         name: "Year of Plenty",
         description: "Take any 2 resource cards from the bank and add them to your hand.  They can be two different resources or two of the same resource.  They may immediately be used to build.",
-        imageUrl: "https://google.ca"
+        imageUrl: "https://google.ca",
+        id: 9,
     },
     {
         name: "Year of Plenty",
         description: "Take any 2 resource cards from the bank and add them to your hand.  They can be two different resources or two of the same resource.  They may immediately be used to build.",
-        imageUrl: "https://google.ca"
+        imageUrl: "https://google.ca",
+        id: 10,
     },
     {
         name: "Monopoly",
         description: "When you play this card, announce one type of resource.  All other players must give you all their resource cards of that type.",
-        imageUrl: "https://google.ca"
+        imageUrl: "https://google.ca",
+        id: 11,
     },
     {
         name: "Monopoly",
         description: "When you play this card, announce one type of resource.  All other players must give you all their resource cards of that type.",
-        imageUrl: "https://google.ca"
+        imageUrl: "https://google.ca",
+        id: 12,
     },
     {
         name: "Monopoly",
         description: "When you play this card, announce one type of resource.  All other players must give you all their resource cards of that type.",
-        imageUrl: "https://google.ca"
+        imageUrl: "https://google.ca",
+        id: 13,
     },
     {
         name: "Soldier",
         description: "Move the robber.  Steal one resource card from the owner of an adjacent settlement or city.",
-        imageUrl: "https://google.ca"
+        imageUrl: "https://google.ca",
+        id: 14,
     },
     {
         name: "Soldier",
         description: "Move the robber.  Steal one resource card from the owner of an adjacent settlement or city.",
-        imageUrl: "https://google.ca"
+        imageUrl: "https://google.ca",
+        id: 15,
     },
     {
         name: "Soldier",
         description: "Move the robber.  Steal one resource card from the owner of an adjacent settlement or city.",
-        imageUrl: "https://google.ca"
+        imageUrl: "https://google.ca",
+        id: 16,
     },
     {
         name: "Soldier",
         description: "Move the robber.  Steal one resource card from the owner of an adjacent settlement or city.",
-        imageUrl: "https://google.ca"
+        imageUrl: "https://google.ca",
+        id: 17,
     },
     {
         name: "Soldier",
         description: "Move the robber.  Steal one resource card from the owner of an adjacent settlement or city.",
-        imageUrl: "https://google.ca"
+        imageUrl: "https://google.ca",
+        id: 18,
     },
     {
         name: "Soldier",
         description: "Move the robber.  Steal one resource card from the owner of an adjacent settlement or city.",
-        imageUrl: "https://google.ca"
+        imageUrl: "https://google.ca",
+        id: 19,
     },
     {
         name: "Soldier",
         description: "Move the robber.  Steal one resource card from the owner of an adjacent settlement or city.",
-        imageUrl: "https://google.ca"
+        imageUrl: "https://google.ca",
+        id: 20,
     },
     {
         name: "Soldier",
         description: "Move the robber.  Steal one resource card from the owner of an adjacent settlement or city.",
-        imageUrl: "https://google.ca"
+        imageUrl: "https://google.ca",
+        id: 21,
     },
     {
         name: "Soldier",
         description: "Move the robber.  Steal one resource card from the owner of an adjacent settlement or city.",
-        imageUrl: "https://google.ca"
+        imageUrl: "https://google.ca",
+        id: 22,
     },
     {
         name: "Soldier",
         description: "Move the robber.  Steal one resource card from the owner of an adjacent settlement or city.",
-        imageUrl: "https://google.ca"
+        imageUrl: "https://google.ca",
+        id: 23,
     },
     {
         name: "Soldier",
         description: "Move the robber.  Steal one resource card from the owner of an adjacent settlement or city.",
-        imageUrl: "https://google.ca"
+        imageUrl: "https://google.ca",
+        id: 24,
     },
     {
         name: "Soldier",
         description: "Move the robber.  Steal one resource card from the owner of an adjacent settlement or city.",
-        imageUrl: "https://google.ca"
+        imageUrl: "https://google.ca",
+        id: 25,
     },
     {
         name: "Soldier",
         description: "Move the robber.  Steal one resource card from the owner of an adjacent settlement or city.",
-        imageUrl: "https://google.ca"
+        imageUrl: "https://google.ca",
+        id: 26,
     },
     {
         name: "Soldier",
         description: "Move the robber.  Steal one resource card from the owner of an adjacent settlement or city.",
-        imageUrl: "https://google.ca"
+        imageUrl: "https://google.ca",
+        id: 27,
     },
     {
         name: "Soldier",
         description: "Move the robber.  Steal one resource card from the owner of an adjacent settlement or city.",
-        imageUrl: "https://google.ca"
+        imageUrl: "https://google.ca",
+        id: 28,
     },
     {
         name: "Soldier",
         description: "Move the robber.  Steal one resource card from the owner of an adjacent settlement or city.",
-        imageUrl: "https://google.ca"
+        imageUrl: "https://google.ca",
+        id: 29,
     },
     {
         name: "Soldier",
         description: "Move the robber.  Steal one resource card from the owner of an adjacent settlement or city.",
-        imageUrl: "https://google.ca"
+        imageUrl: "https://google.ca",
+        id: 30,
     },
     {
         name: "Soldier",
         description: "Move the robber.  Steal one resource card from the owner of an adjacent settlement or city.",
-        imageUrl: "https://google.ca"
+        imageUrl: "https://google.ca",
+        id: 31,
     },
     {
         name: "Soldier",
         description: "Move the robber.  Steal one resource card from the owner of an adjacent settlement or city.",
-        imageUrl: "https://google.ca"
+        imageUrl: "https://google.ca",
+        id: 32,
     },
     {
         name: "Soldier",
         description: "Move the robber.  Steal one resource card from the owner of an adjacent settlement or city.",
-        imageUrl: "https://google.ca"
+        imageUrl: "https://google.ca",
+        id: 33,
     }
 ];
 
