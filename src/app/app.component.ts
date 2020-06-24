@@ -63,7 +63,12 @@ export class AppComponent {
       to: player.email,
       from: "badmrgraham@gmail.com",
       subject: "you drew a card",
-      html: "<h1>You got a " + card.name + "</h1><p>" + card.description + "</p>"
+      html: "<h1>You got a " + card.name + "</h1><p>" + card.description + "</p><img src=\"cid:" + card.cid + "\"/>",
+      attachments: [{
+        filename: card.imageUrl.split('\\').pop().split('/').pop(),
+        path: card.imageUrl,
+        cid: card.cid
+      }]
     }
 
     this.http.post('/api/sendEmail', emailInfo).subscribe((data:any) => {
