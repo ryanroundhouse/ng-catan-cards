@@ -50,7 +50,7 @@
           <div class="form-group">
             <input class="form-control" id="{{cardEvent.id}}" style="visibility:collapse" type="textbox" value="{{cardEvent.card.name}}">
             <a (click)="toggleVisibility(cardEvent.id)">
-              <i class="fa fa-eye-slash field-icon" aria-hidden="true"></i>
+              <fa-icon [icon]="faEyeSlash" class="eye-icon" aria-hidden="true"></fa-icon>
             </a>
           </div>
         </td>

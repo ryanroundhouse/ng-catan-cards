@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from "@angular/router";
 import { FormBuilder } from '@angular/forms';
+import { faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 
 import { cards } from './deck';
 import { Player } from './player';
@@ -14,6 +15,7 @@ import { CardEvent } from './card-event';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
+  faEyeSlash = faEyeSlash; 
   title: string = 'ng-catan-cards';
   public addPlayerForm;
   deck: Card[] = this.shuffle(cards);
