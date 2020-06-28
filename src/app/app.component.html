@@ -1,4 +1,4 @@
-<div class="row">
+<div class="row m-0">
   <div class="col-md-10">
     <h1>Settlers of Catan Deck Dealer</h1>
   </div>
@@ -7,7 +7,7 @@
   </div>
 </div>
 
-<div class="row">
+<div class="row m-0">
   <div class="col-md-4"></div>
   <div class="col-md-4">
     <form [formGroup]="addPlayerForm" (ngSubmit)="onSubmitAddPlayer(addPlayerForm.value)" class="text-center border border-light p-5" >
@@ -27,54 +27,56 @@
   </div>
   <div class="col-md-4"></div>
 </div>
-<label>{{cardsLeft}} of {{deck.length}} Cards Remain</label>
-<div class="row">
-  <div class="col-md-6">
-    <table class="table table-striped">
-      <thead>
-        <tr>
-          <th scope="col">Name</th>
-          <th scope="col">Email</th>
-          <th scope="col">Draw Card</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let player of players">
-          <td scope="row">{{player.name}}</td>
-          <td scope="row">{{player.email}}</td>
-          <td scope="row">
-            <button *ngIf="cardsLeft !== 0" (click)="drawCard(player.id)">Draw Card</button>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-  <div class="col-md-6">
-    <table class="table table-striped">
-      <thead>
-        <tr>
-          <th scope="col">Player</th>
-          <th scope="col">Card</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let cardEvent of cardEvents">
-          <td scope="row">{{cardEvent.player.name}}</td>
-          <div class="input-group">
-            <td scope="row">
-              <div class="form-group">
-                <input class="form-control" id="{{cardEvent.id}}" style="visibility:collapse" type="textbox" value="{{cardEvent.card.name}}">
-                <a (click)="toggleVisibility(cardEvent.id)">
-                  <fa-icon [icon]="faEyeSlash" class="eye-icon" aria-hidden="true"></fa-icon>
-                </a>
-              </div>
-            </td>
-          </div>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-
+<div class="centre-div">
+  <h2>Players</h2>
 </div>
+<div class="row text-center align-items-end m-0">
+  <div class="col-lg-3 mb-5 mb-lg-0 mt-3" *ngFor="let player of players">
+    <div class="bg-white p-5 rounded-lg shadow">
+      <h1 class="h2 text-uppercase font-weight-bold mb-4">{{player.name}}</h1>
+      <h2 class="h6 text-uppercase mb-4">{{player.email}}</h2>
+      <button *ngIf="cardsLeft !== 0" class="btn btn-info my-4 btn-block" (click)="drawCard(player.id)">Draw Card</button>
+    </div>
+  </div>
+</div>
+<div class="centre-div">
+  <h2>Drawn Cards</h2>
+  <label>{{cardsLeft}} of {{deck.length}} Cards Remain</label>
+</div>
+<div class="row text-center align-items-end m-0">
+  <div class="col-lg-2 mb-5 mb-lg-0 mt-3" *ngFor="let cardEvent of cardEvents">
+    <div class="bg-white p-5 rounded-lg shadow">
+      <h1>{{cardEvent.player.name}}</h1>
+      <input class="form-control" id="{{cardEvent.id}}" style="visibility:collapse" type="textbox" value="{{cardEvent.card.name}}">
+      <a (click)="toggleVisibility(cardEvent.id)">
+        <fa-icon [icon]="faEyeSlash" class="eye-icon" aria-hidden="true"></fa-icon>
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- <table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Player</th>
+      <th scope="col">Card</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let cardEvent of cardEvents">
+      <td scope="row">{{cardEvent.player.name}}</td>
+      <div class="input-group">
+        <td scope="row">
+          <div class="form-group">
+            <input class="form-control" id="{{cardEvent.id}}" style="visibility:collapse" type="textbox" value="{{cardEvent.card.name}}">
+            <a (click)="toggleVisibility(cardEvent.id)">
+              <fa-icon [icon]="faEyeSlash" class="eye-icon" aria-hidden="true"></fa-icon>
+            </a>
+          </div>
+        </td>
+      </div>
+    </tr>
+  </tbody>
+</table> -->
 
 <router-outlet></router-outlet>
