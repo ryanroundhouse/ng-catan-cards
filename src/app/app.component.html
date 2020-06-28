@@ -27,30 +27,36 @@
   </div>
   <div class="col-md-4"></div>
 </div>
-<div class="centre-div">
-  <h2>Players</h2>
-</div>
-<div class="row text-center align-items-end m-0">
-  <div class="col-lg-3 mb-5 mb-lg-0 mt-3" *ngFor="let player of players">
-    <div class="bg-white p-5 rounded-lg shadow">
-      <h1 class="h2 text-uppercase font-weight-bold mb-4">{{player.name}}</h1>
-      <h2 class="h6 text-uppercase mb-4">{{player.email}}</h2>
-      <button *ngIf="cardsLeft !== 0" class="btn btn-info my-4 btn-block" (click)="drawCard(player.id)">Draw Card</button>
+
+<div *ngIf="players.length > 0">
+  <div class="centre-div">
+    <h2>Players</h2>
+  </div>
+  <div class="row text-center align-items-end m-0">
+    <div class="col-lg-3 mb-5 mb-lg-0 mt-3" *ngFor="let player of players">
+      <div class="bg-white p-5 rounded-lg shadow">
+        <h1 class="h2 text-uppercase font-weight-bold mb-4">{{player.name}}</h1>
+        <h2 class="h6 text-uppercase mb-4">{{player.email}}</h2>
+        <button *ngIf="cardsLeft !== 0" class="btn btn-info my-4 btn-block" (click)="drawCard(player.id)">Draw Card</button>
+      </div>
     </div>
   </div>
 </div>
-<div class="centre-div">
-  <h2>Drawn Cards</h2>
-  <label>{{cardsLeft}} of {{deck.length}} Cards Remain</label>
-</div>
-<div class="row text-center align-items-end m-0">
-  <div class="col-lg-2 mb-5 mb-lg-0 mt-3" *ngFor="let cardEvent of cardEvents">
-    <div class="bg-white p-5 rounded-lg shadow">
-      <h1>{{cardEvent.player.name}}</h1>
-      <input class="form-control" id="{{cardEvent.id}}" style="visibility:collapse" type="textbox" value="{{cardEvent.card.name}}">
-      <a (click)="toggleVisibility(cardEvent.id)">
-        <fa-icon [icon]="faEyeSlash" class="eye-icon" aria-hidden="true"></fa-icon>
-      </a>
+
+<div *ngIf="cardsLeft < deck.length">
+  <div class="centre-div">
+    <h2>Drawn Cards</h2>
+    <label>{{cardsLeft}} of {{deck.length}} Cards Remain</label>
+  </div>
+  <div class="row text-center align-items-end m-0">
+    <div class="col-lg-2 mb-5 mb-lg-0 mt-3" *ngFor="let cardEvent of cardEvents">
+      <div class="bg-white p-5 rounded-lg shadow">
+        <h1>{{cardEvent.player.name}}</h1>
+        <input class="form-control" id="{{cardEvent.id}}" style="visibility:collapse" type="textbox" value="{{cardEvent.card.name}}">
+        <a (click)="toggleVisibility(cardEvent.id)">
+          <fa-icon [icon]="faEyeSlash" class="eye-icon" aria-hidden="true"></fa-icon>
+        </a>
+      </div>
     </div>
   </div>
 </div>
