@@ -1,62 +1,80 @@
-<form [formGroup]="addPlayerForm" (ngSubmit)="onSubmitAddPlayer(addPlayerForm.value)">
-  <h4>Add a Player</h4>
-  <div class="form-group">
-    <label for="newPlayerName">New Player Name</label>
-    <input type="textbox" class="form-control" id="newPlayerName" aria-describedby="newPlayerNameHelp" placeholder="Jane Smith" formControlName="newPlayerName">
-    <small id="newPlayerNameHelp" class="form-text text-muted">This will be the name displayed for this player.</small>
+<div class="row">
+  <div class="col-md-10">
+    <h1>Settlers of Catan Deck Dealer</h1>
   </div>
-  <div class="form-group">
-    <label for="newPlayerEmail">New Player Email</label>
-    <input type="textbox" class="form-control" id="newPlayerEmail" aria-describedby="newPlayerEmailHelp" placeholder="jane@smith.com" formControlName="newPlayerEmail">
-    <small id="newPlayerEmailHelp" class="form-text text-muted">This will be the email address that receives the card.</small>
+  <div class="col-md-2">
+    <p>Built by <a href="https://ryangraham.ca">Ryan Graham</a></p>
   </div>
-  <button type="submit" class="btn btn-secondary">Add Player</button>
-</form>
+</div>
 
-<br><br>
-<label>{{cardsLeft}} of {{deck.length}} Cards Remain</label>
-<table class="table table-striped">
-  <thead>
-    <tr>
-      <th scope="col">Name</th>
-      <th scope="col">Email</th>
-      <th scope="col">Draw Card</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let player of players">
-      <td scope="row">{{player.name}}</td>
-      <td scope="row">{{player.email}}</td>
-      <td scope="row">
-        <button *ngIf="cardsLeft !== 0" (click)="drawCard(player.id)">Draw Card</button>
-      </td>
-    </tr>
-  </tbody>
-</table>
-
-<br><br>
-<table class="table table-striped">
-  <thead>
-    <tr>
-      <th scope="col">Player</th>
-      <th scope="col">Card</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let cardEvent of cardEvents">
-      <td scope="row">{{cardEvent.player.name}}</td>
-      <div class="input-group">
-        <td scope="row">
-          <div class="form-group">
-            <input class="form-control" id="{{cardEvent.id}}" style="visibility:collapse" type="textbox" value="{{cardEvent.card.name}}">
-            <a (click)="toggleVisibility(cardEvent.id)">
-              <fa-icon [icon]="faEyeSlash" class="eye-icon" aria-hidden="true"></fa-icon>
-            </a>
-          </div>
-        </td>
+<div class="row">
+  <div class="col-md-4"></div>
+  <div class="col-md-4">
+    <form [formGroup]="addPlayerForm" (ngSubmit)="onSubmitAddPlayer(addPlayerForm.value)" class="text-center border border-light p-5" >
+      <h3>Add a Player</h3>
+      <div class="form-group">
+        <label for="newPlayerName">New Player Name</label>
+        <input type="textbox" class="form-control" id="newPlayerName" aria-describedby="newPlayerNameHelp" placeholder="Jane Smith" formControlName="newPlayerName">
+        <small id="newPlayerNameHelp" class="form-text text-muted">This will be the name displayed for this player.</small>
       </div>
-    </tr>
-  </tbody>
-</table>
+      <div class="form-group">
+        <label for="newPlayerEmail">New Player Email</label>
+        <input type="email" class="form-control" id="newPlayerEmail" aria-describedby="newPlayerEmailHelp" placeholder="jane@smith.com" formControlName="newPlayerEmail">
+        <small id="newPlayerEmailHelp" class="form-text text-muted">This will be the email address that receives the card.</small>
+      </div>
+      <button type="submit" class="btn btn-info my-4 btn-block">Add Player</button>
+    </form>
+  </div>
+  <div class="col-md-4"></div>
+</div>
+<label>{{cardsLeft}} of {{deck.length}} Cards Remain</label>
+<div class="row">
+  <div class="col-md-6">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col">Name</th>
+          <th scope="col">Email</th>
+          <th scope="col">Draw Card</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let player of players">
+          <td scope="row">{{player.name}}</td>
+          <td scope="row">{{player.email}}</td>
+          <td scope="row">
+            <button *ngIf="cardsLeft !== 0" (click)="drawCard(player.id)">Draw Card</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="col-md-6">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col">Player</th>
+          <th scope="col">Card</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let cardEvent of cardEvents">
+          <td scope="row">{{cardEvent.player.name}}</td>
+          <div class="input-group">
+            <td scope="row">
+              <div class="form-group">
+                <input class="form-control" id="{{cardEvent.id}}" style="visibility:collapse" type="textbox" value="{{cardEvent.card.name}}">
+                <a (click)="toggleVisibility(cardEvent.id)">
+                  <fa-icon [icon]="faEyeSlash" class="eye-icon" aria-hidden="true"></fa-icon>
+                </a>
+              </div>
+            </td>
+          </div>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+</div>
 
 <router-outlet></router-outlet>
