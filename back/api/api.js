@@ -1,5 +1,11 @@
 var nodemailer = require('nodemailer');
-var nodeMailInfo = require('../nodemailInfo');
+try{
+    var nodeMailInfo = require('../nodemailInfo');
+}catch (exception){
+    if (exception.code === 'MODULE_NOT_FOUND'){
+        console.log('no nodeMailInfo found.  You have to manually create this with your own SMTP data.  See nodemailInfo-sample.js for a sample of how to do so.');
+    }
+}
 
 var transporter = nodemailer.createTransport(nodeMailInfo.nodeMailInfo);
 
