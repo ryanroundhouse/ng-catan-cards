@@ -6,10 +6,16 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { SplashScreenComponent } from './splash-screen/splash-screen.component';
+import { GameScreenComponent } from './game-screen/game-screen.component';
+import { SiteHeaderComponent } from './site-header/site-header.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    SplashScreenComponent,
+    GameScreenComponent,
+    SiteHeaderComponent
   ],
   imports: [
     BrowserModule,
