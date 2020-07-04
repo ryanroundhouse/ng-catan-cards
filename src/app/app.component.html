@@ -4,16 +4,23 @@
     <form [formGroup]="addPlayerForm" (ngSubmit)="onSubmitAddPlayer(addPlayerForm.value)" class="text-center border border-light px-md-5" >
       <h3>Add a Player</h3>
       <div class="form-group">
-        <label for="newPlayerName">New Player Name</label>
-        <input type="textbox" class="form-control" id="newPlayerName" aria-describedby="newPlayerNameHelp" placeholder="Jane Smith" formControlName="newPlayerName">
-        <small id="newPlayerNameHelp" class="form-text text-muted">This will be the name displayed for this player.</small>
+        <label class="sr-only" for="newPlayerName">New Player Name</label>
+        <input type="textbox" [class.is-invalid]="newPlayerName.invalid && newPlayerName.touched"  class="form-control" id="newPlayerName" aria-describedby="newPlayerNameHelp" placeholder="Player Name" formControlName="newPlayerName">
+        <small id="newPlayerNameHelp" class="form-text sr-only">This will be the name displayed for this player.</small>
+        <div *ngIf="(newPlayerName.invalid && newPlayerName.touched) || newPlayerName.dirty">
+          <small *ngIf="newPlayerName.errors?.required" class="text-danger">Name is required</small>
+        </div>
       </div>
       <div class="form-group">
-        <label for="newPlayerEmail">New Player Email</label>
-        <input type="email" class="form-control" id="newPlayerEmail" aria-describedby="newPlayerEmailHelp" placeholder="jane@smith.com" formControlName="newPlayerEmail">
-        <small id="newPlayerEmailHelp" class="form-text text-muted">This will be the email address that receives the card.</small>
+        <label class="sr-only"  for="newPlayerEmail">New Player Email</label>
+        <input type="email" [class.is-invalid]="newPlayerEmail.invalid && newPlayerEmail.touched" class="form-control" id="newPlayerEmail" aria-describedby="newPlayerEmailHelp" placeholder="Player Email" formControlName="newPlayerEmail">
+        <small id="newPlayerEmailHelp" class="form-text sr-only">This will be the email address that receives the card.</small>
+        <div *ngIf="(newPlayerEmail.invalid && newPlayerEmail.touched) || newPlayerEmail.dirty">
+          <small *ngIf="newPlayerEmail.errors?.required" class="text-danger" >Email address is required</small>
+          <small *ngIf="newPlayerEmail.errors?.email" class="text-danger">Please provide a valid email address</small>
+        </div>
       </div>
-      <button type="submit" class="btn btn-info my-4 btn-block">Add Player</button>
+      <button type="submit" [disabled]="!addPlayerForm.valid" class="btn btn-info my-4 btn-block">Add Player</button>
     </form>
   </div>
   <div class="col-sm-3"></div>

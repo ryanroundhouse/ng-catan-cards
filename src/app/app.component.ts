@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { FormBuilder } from '@angular/forms';
+import { FormBuilder, Validators } from '@angular/forms';
 import { faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 
 import { cards } from './decks/catan';
@@ -26,9 +26,16 @@ export class AppComponent {
 
   constructor(private formBuilder: FormBuilder, private http: HttpClient, private router: Router){
     this.addPlayerForm = this.formBuilder.group({
-      newPlayerName: '',
-      newPlayerEmail: ''
+      newPlayerName: ['', Validators.required],
+      newPlayerEmail: ['', [Validators.required, Validators.email]]
     });
+  }
+
+  get newPlayerName(){
+    return this.addPlayerForm.get('newPlayerName');
+  }
+  get newPlayerEmail(){
+    return this.addPlayerForm.get('newPlayerEmail');
   }
 
   onSubmitAddPlayer(playerData){
