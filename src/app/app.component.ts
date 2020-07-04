@@ -15,13 +15,14 @@ import { CardEvent } from './card-event';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  faEyeSlash = faEyeSlash; 
-  title: string = 'ng-catan-cards';
-  public addPlayerForm;
+  // card properties
+  faEyeSlash = faEyeSlash;
   deck: Card[] = this.shuffle(cards);
   cardsLeft: number = this.deck.length;
-  players: Player[] = [];
   cardEvents: CardEvent[] = [];
+  // add player properties
+  public addPlayerForm;
+  players: Player[] = [];
 
   constructor(private formBuilder: FormBuilder, private http: HttpClient, private router: Router){
     this.addPlayerForm = this.formBuilder.group({
