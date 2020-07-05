@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Guid } from 'guid-typescript';
 
 @Component({
   selector: 'app-splash-screen',
@@ -15,7 +16,8 @@ export class SplashScreenComponent implements OnInit {
 
   hostGame(){
     console.log('hit');
-    this.router.navigate(['game']);
+    const gameGuid: Guid = Guid.create();
+    this.router.navigateByUrl('/catan', {state: {gameId: gameGuid}});
   }
 
 }

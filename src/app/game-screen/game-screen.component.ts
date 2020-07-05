@@ -8,6 +8,7 @@ import { Player } from '../interfaces/player';
 import { Card } from '../interfaces/card';
 import { HttpClient } from '@angular/common/http';
 import { CardEvent } from '../interfaces/card-event';
+import { Guid } from 'guid-typescript';
 
 @Component({
   selector: 'app-game-screen',
@@ -20,6 +21,7 @@ faEyeSlash = faEyeSlash;
 deck: Card[] = this.shuffle(cards);
 cardsLeft: number = this.deck.length;
 cardEvents: CardEvent[] = [];
+gameId: Guid;
 // add player properties
 public addPlayerForm;
 players: Player[] = [];
@@ -29,11 +31,10 @@ constructor(private formBuilder: FormBuilder, private http: HttpClient, private 
     newPlayerName: ['', Validators.required],
     newPlayerEmail: ['', [Validators.required, Validators.email]]
   });
+  this.gameId = this.router.getCurrentNavigation().extras.state.gameId;
 }
 
-ngOnInit(): void {
-  
-}
+ngOnInit(): void {}
 
 get newPlayerName(){
   return this.addPlayerForm.get('newPlayerName');
@@ -85,12 +86,12 @@ drawCard(playerId){
     }]
   };
 
-  this.http.post('/api/sendEmail', emailInfo).subscribe((data: any) => {
-    console.log('success response:');
-    console.log(data);
-  }, error => {
-    console.log(error.error.error);
-  });
+  // this.http.post('/api/sendEmail', emailInfo).subscribe((data: any) => {
+  //   console.log('success response:');
+  //   console.log(data);
+  // }, error => {
+  //   console.log(error.error.error);
+  // });
   this.cardsLeft--;
 }
 

@@ -6,11 +6,11 @@ import { GameScreenComponent } from './game-screen/game-screen.component';
 
 const routes: Routes = [
   {
-    path: 'game',
+    path: 'catan',
     component: GameScreenComponent
   },
   {
-    path: '**', 
+    path: '**',
     component: SplashScreenComponent
   }
 ];

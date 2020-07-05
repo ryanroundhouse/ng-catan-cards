@@ -1,58 +1,56 @@
 <div class="row m-0">
-    <div class="col-sm-3"></div>
-    <div class="col">
-      <form [formGroup]="addPlayerForm" (ngSubmit)="onSubmitAddPlayer(addPlayerForm.value)" class="text-center border border-light px-md-5" >
-        <h3>Add a Player</h3>
-        <div class="form-group">
-          <label class="sr-only" for="newPlayerName">New Player Name</label>
-          <input type="textbox" [class.is-invalid]="newPlayerName.invalid && newPlayerName.touched"  class="form-control" id="newPlayerName" aria-describedby="newPlayerNameHelp" placeholder="Player Name" formControlName="newPlayerName">
-          <small id="newPlayerNameHelp" class="form-text sr-only">This will be the name displayed for this player.</small>
-          <div *ngIf="(newPlayerName.invalid && newPlayerName.touched) || newPlayerName.dirty">
-            <small *ngIf="newPlayerName.errors?.required" class="text-danger">Name is required</small>
-          </div>
-        </div>
-        <div class="form-group">
-          <label class="sr-only"  for="newPlayerEmail">New Player Email</label>
-          <input type="email" [class.is-invalid]="newPlayerEmail.invalid && newPlayerEmail.touched" class="form-control" id="newPlayerEmail" aria-describedby="newPlayerEmailHelp" placeholder="Player Email" formControlName="newPlayerEmail">
-          <small id="newPlayerEmailHelp" class="form-text sr-only">This will be the email address that receives the card.</small>
-          <div *ngIf="(newPlayerEmail.invalid && newPlayerEmail.touched) || newPlayerEmail.dirty">
-            <small *ngIf="newPlayerEmail.errors?.required" class="text-danger" >Email address is required</small>
-            <small *ngIf="newPlayerEmail.errors?.email" class="text-danger">Please provide a valid email address</small>
-          </div>
-        </div>
-        <button type="submit" [disabled]="!addPlayerForm.valid" class="btn btn-info my-4 btn-block">Add Player</button>
-      </form>
-    </div>
-    <div class="col-sm-3"></div>
-  </div>
-  
-  <div *ngIf="players.length > 0">
-    <div class="centre-div">
-      <h2>Players</h2>
-    </div>
-    <div class="row m-0">
-      <div class="card col-xs-12 col-sm-6 col-md-4 m-3 bg-white p-2 rounded-lg shadow text-center" *ngFor="let player of players">
-        <h2 class="card-title text-uppercase">{{player.name}}</h2>
-        <h6 class="card-text text-uppercase mb-4">{{player.email}}</h6>
-        <button *ngIf="cardsLeft !== 0" class="btn btn-info m-auto" (click)="drawCard(player.id)">Draw Card</button>
-      </div>
-    </div>
-  </div>
-  
-  <div *ngIf="cardsLeft < deck.length">
-    <div class="centre-div">
-      <h2>Drawn Cards</h2>
-      <label>{{cardsLeft}} of {{deck.length}} Cards Remain</label>
-    </div>
-    <div class="row text-center align-items-end m-0">
-      <div class="col-lg-2 mb-5 mb-lg-0 mt-3" *ngFor="let cardEvent of cardEvents">
-        <div class="bg-white p-5 rounded-lg shadow">
-          <h1>{{cardEvent.player.name}}</h1>
-          <input class="form-control" id="{{cardEvent.id}}" style="visibility:collapse" type="textbox" value="{{cardEvent.card.name}}">
-          <a (click)="toggleVisibility(cardEvent.id)">
-            <fa-icon [icon]="faEyeSlash" class="eye-icon" aria-hidden="true"></fa-icon>
-          </a>
+  <div class="col-sm-3"></div>
+  <div class="col">
+    <form [formGroup]="addPlayerForm" (ngSubmit)="onSubmitAddPlayer(addPlayerForm.value)" class="text-center border border-light px-md-5" >
+      <h3>Add a Player</h3>
+      <div class="form-group">
+        <label class="sr-only" for="newPlayerName">New Player Name</label>
+        <input type="textbox" [class.is-invalid]="newPlayerName.invalid && newPlayerName.touched"  class="form-control" id="newPlayerName" aria-describedby="newPlayerNameHelp" placeholder="Player Name" formControlName="newPlayerName">
+        <small id="newPlayerNameHelp" class="form-text sr-only">This will be the name displayed for this player.</small>
+        <div *ngIf="(newPlayerName.invalid && newPlayerName.touched) || newPlayerName.dirty">
+          <small *ngIf="newPlayerName.errors?.required" class="text-danger">Name is required</small>
         </div>
       </div>
+      <div class="form-group">
+        <label class="sr-only"  for="newPlayerEmail">New Player Email</label>
+        <input type="email" [class.is-invalid]="newPlayerEmail.invalid && newPlayerEmail.touched" class="form-control" id="newPlayerEmail" aria-describedby="newPlayerEmailHelp" placeholder="Player Email" formControlName="newPlayerEmail">
+        <small id="newPlayerEmailHelp" class="form-text sr-only">This will be the email address that receives the card.</small>
+        <div *ngIf="(newPlayerEmail.invalid && newPlayerEmail.touched) || newPlayerEmail.dirty">
+          <small *ngIf="newPlayerEmail.errors?.required" class="text-danger" >Email address is required</small>
+          <small *ngIf="newPlayerEmail.errors?.email" class="text-danger">Please provide a valid email address</small>
+        </div>
+      </div>
+      <button type="submit" [disabled]="!addPlayerForm.valid" class="btn btn-info my-4 btn-block">Add Player</button>
+    </form>
+  </div>
+  <div class="col-sm-3"></div>
+</div>
+  
+<div *ngIf="players.length > 0">
+  <div class="centre-div">
+    <h2>Players</h2>
+  </div>
+  <div class="row m-0 justify-content-around">
+    <div class="card col-xs-12 col-sm-6 col-md-4 col-lg-3 m-3 bg-white p-2 rounded-lg shadow text-center" *ngFor="let player of players">
+      <h2 class="card-title text-uppercase">{{player.name}}</h2>
+      <h6 class="card-text text-uppercase mb-4">{{player.email}}</h6>
+      <button *ngIf="cardsLeft !== 0" class="btn btn-info m-auto" (click)="drawCard(player.id)">Draw Card</button>
     </div>
   </div>
+</div>
+
+<div *ngIf="cardsLeft < deck.length">
+  <div class="centre-div">
+    <h2>Drawn Cards</h2>
+    <label>{{cardsLeft}} of {{deck.length}} Cards Remain</label>
+  </div>
+  <div class="row m-0 justify-content-around">
+    <div class="card col-xs-12 col-sm-6 col-md-3 col-lg-2 m-3 bg-white rounded-lg shadow text-center" *ngFor="let cardEvent of cardEvents">
+      <h2 class="card-title text-uppercase">{{cardEvent.player.name}}</h2>
+      <input class="form-control" id="{{cardEvent.id}}" style="visibility:collapse" type="textbox" value="{{cardEvent.card.name}}">
+      <a (click)="toggleVisibility(cardEvent.id)">
+        <fa-icon [icon]="faEyeSlash" class="eye-icon" aria-hidden="true"></fa-icon>
+      </a>
+    </div>
+  </div>
+</div>
