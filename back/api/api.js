@@ -9,17 +9,34 @@ try{
 
 var transporter = nodemailer.createTransport(nodeMailInfo.nodeMailInfo);
 
+var mailThreads = [];
+
 exports.sendEmail = function(emailInfo){
     console.log("sending email...");
-    console.log(emailInfo.attachments[0].path);
-    emailInfo.attachments[0].path = __dirname + "/../../" + emailInfo.attachments[0].path;
-    console.log(nodeMailInfo.nodeMailInfo);
-    transporter.sendMail(emailInfo, function(error, info){
-        if (error){
-            console.log(error);
+    let existingMessageId;
+    if (mailThreads.length > 0){
+        existingMessageId = mailThreads.find(thread => thread.email === emailInfo.to).messageId;
+        console.log(`existing messageId found: re-using ${existingMessageId}`);
+        if (existingMessageId){
+            emailInfo.messageId = existingMessageId;
         }
-        else{
+    }
+    emailInfo.attachments.forEach(attachment => {
+        const att = __dirname + "/../../" + attachment.path;
+        console.log(`correcting path from ${attachment.path} to ${att}`);
+        attachment.path = att;
+    });
+    console.log(nodeMailInfo.nodeMailInfo);
+    transporter.sendMail(emailInfo, function(error, info, response){
+        console.log(`error: ${JSON.stringify(error)}`);
+        console.log(`info: ${JSON.stringify(info)}`);
+        console.log(`response: ${JSON.stringify(response)}`);
+        if (error === null){
             console.log('Email sent: ' + info.response);
+            if (!existingMessageId){
+                mailThreads.push({email: emailInfo.to, messageId: info.messageId});
+                console.log(`mailThreads: ${JSON.stringify(mailThreads)}`);
+            }
         }
     })
     console.log(emailInfo);
