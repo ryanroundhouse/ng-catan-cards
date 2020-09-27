@@ -20,6 +20,7 @@ export class GameScreenComponent implements OnInit {
   // card properties
   faEyeSlash = faEyeSlash;
   gameType: Number;
+  gameName: string;
   deck: Card[];
   cardsLeft: number;
   numberOfCardsToDraw: number;
@@ -42,12 +43,14 @@ export class GameScreenComponent implements OnInit {
         console.log(`shuffling catan cards`);
         this.deck = this.shuffle(catanCards);
         this.numberOfCardsToDraw = 1;
+        this.gameName = "Settlers of Catan";
         break;
       }
       case 1:{
         console.log(`shuffling ticket to ride cards`);
         this.deck = this.shuffle(ticketToRideCards);
         this.numberOfCardsToDraw = 3;
+        this.gameName = "Ticket to Ride";
         break;
       }
     }

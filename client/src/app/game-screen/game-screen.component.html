@@ -2,6 +2,7 @@
   <div class="col-sm-3"></div>
   <div class="col">
     <form [formGroup]="addPlayerForm" (ngSubmit)="onSubmitAddPlayer(addPlayerForm.value)" class="text-center border border-light px-md-5" >
+      <h3>{{gameName}}</h3>
       <h3>Add a Player</h3>
       <div class="form-group">
         <label class="sr-only" for="newPlayerName">New Player Name</label>

@@ -1,52 +1,21 @@
 {
-  "name": "ng-catan-cards",
-  "version": "0.0.0",
+  "name": "deck-dealer",
+  "version": "1.0.0",
+  "description": "deck dealer",
+  "main": "index.js",
   "scripts": {
-    "ng": "ng",
-    "start": "concurrently \"node ./back/bin/www\" \"ng serve -o --proxy-config proxy.conf.json\"",
-    "build": "ng build",
-    "test": "ng test",
-    "lint": "ng lint",
-    "e2e": "ng e2e"
+    "build": "cd client && npm run build",
+    "start": "node ./back/bin/www",
+    "install": "cd client && npm install && cd ../back && npm install"
   },
-  "private": true,
-  "dependencies": {
-    "@angular/animations": "~9.1.4",
-    "@angular/common": "~9.1.4",
-    "@angular/compiler": "~9.1.4",
-    "@angular/core": "~9.1.4",
-    "@angular/forms": "~9.1.4",
-    "@angular/platform-browser": "~9.1.4",
-    "@angular/platform-browser-dynamic": "~9.1.4",
-    "@angular/router": "~9.1.4",
-    "@fortawesome/angular-fontawesome": "^0.6.1",
-    "@fortawesome/fontawesome-svg-core": "^1.2.28",
-    "@fortawesome/free-solid-svg-icons": "^5.13.0",
-    "bootstrap": "^4.5.0",
-    "guid-typescript": "^1.0.9",
-    "rxjs": "~6.5.4",
-    "tslib": "^1.10.0",
-    "zone.js": "~0.10.2"
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ryanroundhouse/ng-catan-cards.git"
   },
-  "devDependencies": {
-    "@angular-devkit/build-angular": "~0.901.4",
-    "@angular/cli": "~9.1.4",
-    "@angular/compiler-cli": "~9.1.4",
-    "@angular/language-service": "~9.1.4",
-    "@types/jasmine": "^3.5.11",
-    "@types/jasminewd2": "~2.0.3",
-    "@types/node": "^12.11.1",
-    "codelyzer": "^5.1.2",
-    "jasmine-core": "~3.5.0",
-    "jasmine-spec-reporter": "~4.2.1",
-    "karma": "~5.0.0",
-    "karma-chrome-launcher": "~3.1.0",
-    "karma-coverage-istanbul-reporter": "~2.1.0",
-    "karma-jasmine": "~3.0.1",
-    "karma-jasmine-html-reporter": "^1.4.2",
-    "protractor": "^7.0.0",
-    "ts-node": "~8.3.0",
-    "tslint": "~6.1.0",
-    "typescript": "~3.8.3"
-  }
+  "author": "rg@ryangraham.ca",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ryanroundhouse/ng-catan-cards/issues"
+  },
+  "homepage": "https://github.com/ryanroundhouse/ng-catan-cards#readme"
 }
