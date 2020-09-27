@@ -8,6 +8,11 @@ import { Guid } from 'guid-typescript';
   styleUrls: ['./splash-screen.component.scss']
 })
 export class SplashScreenComponent implements OnInit {
+  games = [
+    {name: 'Settlers of Catan', value: 0},
+    {name: 'Ticket to Ride', value: 1}
+  ];
+  selectedGame: string;
 
   constructor(private router: Router) { }
 
@@ -15,9 +20,10 @@ export class SplashScreenComponent implements OnInit {
   }
 
   hostGame(){
-    console.log('hit');
+    console.log(this.selectedGame);
+    const gameId = this.games.find(game => game.name === this.selectedGame).value;
     const gameGuid: Guid = Guid.create();
-    this.router.navigateByUrl('/catan', {state: {gameId: gameGuid}});
+    this.router.navigateByUrl(`/game/${gameId}`, {state: {gameId: gameGuid}});
   }
 
 }

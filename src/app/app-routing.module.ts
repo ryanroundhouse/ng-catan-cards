@@ -6,7 +6,7 @@ import { GameScreenComponent } from './game-screen/game-screen.component';
 
 const routes: Routes = [
   {
-    path: 'catan',
+    path: 'game/:gameType',
     component: GameScreenComponent
   },
   {
