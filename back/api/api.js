@@ -1,6 +1,24 @@
 var nodemailer = require('nodemailer');
+
+var nodeMailInfo;
 try{
-    var nodeMailInfo = require('../nodemailInfo');
+    const nodeMailEmail = process.env.DECK_DEALER_EMAIL;
+    const nodeMailKey = process.env.DECK_DEALER_KEY;
+    const nodeMailService = process.env.DECK_DEALER_SERVICE;
+    if (nodeMailEmail){
+        nodeMailInfo = {
+            nodeMailInfo: {
+                service: nodeMailService,
+                auth: {
+                user: nodeMailEmail,
+                pass: nodeMailKey,
+                }
+            }
+        };
+    }
+    else{
+        nodeMailInfo = require('../nodemailInfo');
+    }
 }catch (exception){
     if (exception.code === 'MODULE_NOT_FOUND'){
         console.log('no nodeMailInfo found.  You have to manually create this with your own SMTP data.  See nodemailInfo-sample.js for a sample of how to do so.');
